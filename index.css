@@ -1,0 +1,53 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.logo {
+    width: 105px;
+}
+
+.nav-items {
+    font-size: 20px;
+    padding: 0px 10px;
+    
+}
+.nav-items > ul {
+    display: flex;
+
+    list-style-type: none;
+}
+
+.nav-items > ul >li {
+    width: 103px;
+  padding: 18px;  
+  
+  
+}
+
+.RestaurentContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.res-card:hover {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.res-card {
+    margin: 5px;
+    width: 270px;
+    
+    
+    padding: 10px;
+}
+.search {
+    padding: 10px;
+    
+}
+.res-logo {
+    width: 100%;
+    height: 50%;
+    
+}
