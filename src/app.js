@@ -2,23 +2,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
        
-/**
- * Header
- * -Logo
- *  - Nav Items
- * Body
- *  - Search
- *  - Restaurent container
- *    - Restaurent cards
- *      -Image
- *      -Name ,star rating , Cuisines, delivery ETA
- * Footer
- *  - Copyright
- *  - Links
- *  - Address
- *  - Contact
- */
-        const Header = () => {
+
+      const Header = () => {
                 return(
                 <div className="header">
                         <div className="logoContainer">
@@ -34,12 +19,12 @@ import ReactDOM from "react-dom/client";
                         </div>
                 </div>
                 );
-        };
-        const StyleCard = {                             //Inline style 
+      };
+      const StyleCard = {                             //Inline style 
                 backgroundColor: "#f0f0f0"
         };
 
-        const resList = [
+       const resList = [
                 {
                   "info": {
                     "id": "8249",
@@ -1885,19 +1870,19 @@ import ReactDOM from "react-dom/client";
                 }
               
         ]
-        const RestaurentCard = (props) => {
-                const {resData} = props;
-                const {name,cuisines,costForTwo,avgRating,cloudinaryImageId } = resData?.info;
+      const RestaurentCard = (props) => {
+               const {resData} = props;
+              const {name,cuisines,costForTwo,avgRating,cloudinaryImageId } = resData?.info;
                
 
-                return(
-                                        //style takes a JS object but i can directly pass the js object by using {} style={{ backgroundColor: "#f0f0f0"}}
-                                        // outer bracket to notify that theres js piece of code inside.
-                        <div className="res-card" style={StyleCard}>  
-                        <img
-                        className="res-logo"
-                        alt="res-logo"
-                        src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resData.info.cloudinaryImageId}
+              return(
+                   //style takes a JS object but i can directly pass the js object by using {} style={{ backgroundColor: "#f0f0f0"}}
+                   // outer bracket to notify that theres js piece of code inside.
+                    <div className="res-card" style={StyleCard}>  
+                      <img
+                       className="res-logo"
+                       alt="res-logo"
+                      src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resData.info.cloudinaryImageId}
                         />          
                                 <h3>{name}</h3>
                                 <h4>{cuisines.join(",")} </h4>
