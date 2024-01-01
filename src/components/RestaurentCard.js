@@ -3,7 +3,7 @@ import { CDN_URL } from "../utils/constant";
       const StyleCard = {                             //Inline style 
         backgroundColor: "#f0f0f0"
 };
-const RestaurentCard = (props) => {
+const RestaurantCard = (props) => {
     const {resData} = props;
    const {name,cuisines,costForTwo,avgRating,cloudinaryImageId } = resData?.info;
     
@@ -27,4 +27,4 @@ const RestaurentCard = (props) => {
      );
 };
 
-export default RestaurentCard;
+export default RestaurantCard;
