@@ -51,3 +51,16 @@
     height: 50%;
     
 }
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-cards{
+    padding-top: 30px;
+    margin: 10px;
+    width: 250px;
+    height: 400px;
+    background-color: rgb(218, 216, 216);
+}
