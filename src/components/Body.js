@@ -8,6 +8,9 @@ const Body = () => {
 // const [listOfRestaurant, setListOfRestaurant] = arr;
 // same as const listOfRestaurant = arr[0] and const setListOfRestaurant = arr[1];
     const [listOfRestaurant , setListOfRestaurant] = useState([]); //here we are using destructureing
+    const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+
+
     const [searchText, setSearchText] = useState([]);
 //whenever state variable updates, react triggers a reconciallation cycle
     useEffect(() => {
@@ -23,9 +26,11 @@ const Body = () => {
         const json = await data.json();
             const pathTest = json?.data?.cards?.filter((rest)=> rest.card?.card?.id === "restaurant_grid_listing");
             const betterPath = pathTest[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            const fullpath = json?.data?.cards?.filter((rest)=> rest.card?.card?.id === "restaurant_grid_listing")?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             //const resPath = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-        console.log(pathTest);
+        console.log(fullpath);
         setListOfRestaurant(betterPath);
+        setFilteredRestaurant(betterPath);
     };
 
     //conditional rendering
@@ -48,7 +53,7 @@ const Body = () => {
                         const filteredRestaurantList = listOfRestaurant.filter(
                             (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
                         );
-                        setListOfRestaurant(filteredRestaurantList)
+                        setFilteredRestaurant(filteredRestaurantList)
                         console.log(searchText)
                     }}>
                      Search   
@@ -60,7 +65,7 @@ const Body = () => {
                     const filteredList = listOfRestaurant.filter(
                         (RESTAURANT) => RESTAURANT.info.avgRating > 4.3
                     );
-                    setListOfRestaurant(filteredList);
+                    setFilteredRestaurant(filteredList);
 
                 }} 
                 >
@@ -69,8 +74,7 @@ const Body = () => {
                 </div>
              <div className="RestaurantContainer">
                   {
-                  listOfRestaurant.map(RESTAURANT => <RestaurantCard key = {RESTAURANT.info.id} resData = {RESTAURANT}/>)
-                  
+                  filteredRestaurant.map(RESTAURANT => <RestaurantCard key = {RESTAURANT.info.id} resData = {RESTAURANT}/>)
                   }
                    
                    
