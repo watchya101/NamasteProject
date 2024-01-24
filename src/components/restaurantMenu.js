@@ -6,7 +6,6 @@ const RestaurantMenu =  () => {
 
     const [resInfo, setResInfo] = useState(null);
     const {resId} = useParams();
-    console.log(resId)
     
 
     useEffect(() => {
@@ -34,6 +33,7 @@ const RestaurantMenu =  () => {
     if (!resInfo) return (<Shimmer/>); 
     const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
     console.log(itemCards);
+   // console.log(itemCards);
     
         const {name, cuisines, costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info;
         
@@ -45,10 +45,12 @@ const RestaurantMenu =  () => {
             <h2><p>Menu</p></h2>
             <ul>
                 {/* whenever using map try to use key */}
-                {itemCards.map((item) => <li key={item.card.info.id}>{item.card.info.name} - Rs.{(item.card.info.price/100)}</li>)}  
-                <li>{itemCards[0].card?.info?.name}</li>
-                <li>Burger</li>
-                <li>Diet Coke</li>
+                {itemCards.map((item) => <li key={item.card.info.id}>
+                    {item.card.info.name} -
+                 Rs.{val = (item.card.info.price/100)} </li>)}  
+                <li>{itemCards[1].card?.info?.name}</li>
+                <li>test Burger</li>
+                
             </ul>
         </div>
     );
