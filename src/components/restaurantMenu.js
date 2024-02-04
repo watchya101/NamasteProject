@@ -47,7 +47,7 @@ const RestaurantMenu =  () => {
                 {/* whenever using map try to use key */}
                 {itemCards.map((item) => <li key={item.card.info.id}>
                     {item.card.info.name} -
-                 Rs.{val = (item.card.info.price/100)} </li>)}  
+                 Rs.{val = (item.card.info.price/100)||(item.card.info.defaultPrice)} </li>)}  
                 <li>{itemCards[1].card?.info?.name}</li>
                 <li>test Burger</li>
                 
