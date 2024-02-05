@@ -31,8 +31,9 @@ const RestaurantMenu =  () => {
           //GraphQL deals with overfetching and underfetching
           
     if (!resInfo) return (<Shimmer/>); 
-    const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-    console.log(itemCards);
+    //const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    const path = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    console.log(path);
    // console.log(itemCards);
     
         const {name, cuisines, costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info;
@@ -45,11 +46,16 @@ const RestaurantMenu =  () => {
             <h2><p>Menu</p></h2>
             <ul>
                 {/* whenever using map try to use key */}
-                {itemCards.map((item) => <li key={item.card.info.id}>
+                {(path.hasOwnProperty("itemCards"))? 
+                    (path.itemCards.map((item) =>
+                    <li key = {item.card.info.id}>{item.card.info.name} - {(item.card.info.price/100) ||(item.card.info.defaultPrice)}</li>) ):
+                    (path.carousel.map((item) => 
+                    <li key = {item.dish.info.id}>{item.dish.info.name} - {(item.dish.info.price/100) ||(item.dish.info.defaultPrice)}</li>) )
+                }   
+                 {/* {itemCards.map((item) => <li key={item.card.info.id}>
                     {item.card.info.name} -
                  Rs.{val = (item.card.info.price/100)||(item.card.info.defaultPrice)} </li>)}  
-                <li>{itemCards[1].card?.info?.name}</li>
-                <li>test Burger</li>
+                 <li>{itemCards[1].card?.info?.name}</li> */}
                 
             </ul>
         </div>
