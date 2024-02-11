@@ -17,7 +17,6 @@ class About extends Component {
       <div>
         <h1> This is about page</h1>
         <h2> Welcome to my project</h2>
-
         {/* If you want to pass data through functional component */}
         {/* <User name={"watchya(function based)"} /> */}
 
