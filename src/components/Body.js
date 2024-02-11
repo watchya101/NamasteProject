@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurentCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
   // Local State Variable useState returns array can be also written as,
   // const arr = useState(resList);
@@ -125,6 +126,10 @@ const Body = () => {
 
   // conditional rendering
 
+  const OnlineStatus = useOnlineStatus();
+  if(OnlineStatus == false) return (
+    <h1>Seems like your internet connection is down..</h1>
+  )
   return listOfRestaurant.length == 0 ? (
     <Shimmer />
   ) : (
