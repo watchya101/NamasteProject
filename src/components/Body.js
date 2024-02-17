@@ -29,9 +29,7 @@ const Body = () => {
     );
     const betterPath =
       pathTest[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    const fullpath = json?.data?.cards?.filter(
-      (rest) => rest.card?.card?.id === "restaurant_grid_listing"
-    )?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    
     //const resPath = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     console.log("Body Rendered");
     setListOfRestaurant(betterPath);
