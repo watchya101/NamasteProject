@@ -29,7 +29,7 @@ const Body = () => {
     );
     const betterPath =
       pathTest[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    
+
     //const resPath = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     console.log("Body Rendered");
     setListOfRestaurant(betterPath);
@@ -125,9 +125,8 @@ const Body = () => {
   // conditional rendering
 
   const OnlineStatus = useOnlineStatus();
-  if(OnlineStatus == false) return (
-    <h1>Seems like your internet connection is down..</h1>
-  )
+  if (OnlineStatus == false)
+    return <h1>Seems like your internet connection is down..</h1>;
   return listOfRestaurant.length == 0 ? (
     <Shimmer />
   ) : (
@@ -143,7 +142,7 @@ const Body = () => {
             }}
           />
           <button
-          className=" px-4 py-4 bg-green-100 m-2 rounded-lg"
+            className=" px-4 py-4 bg-green-100 m-2 rounded-lg"
             onClick={() => {
               // Filter the restaurent cards and update the UI
               const filteredRestaurantList = listOfRestaurant.filter((res) =>
@@ -157,24 +156,23 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="search m-4 p-4 flex item-center"> 
-            <button
-          className="px-4 py-2 bg-gray-100 rounded-lg"  
-          onClick={() => {
-            // postData("https://www.swiggy.com/dapi/restaurants/list/update", { answer: 42 }).then((data) => {
-            //     console.log(data); // JSON data parsed by `data.json()` call
-            //   });
+        <div className="search m-4 p-4 flex item-center">
+          <button
+            className="px-4 py-2 bg-gray-100 rounded-lg"
+            onClick={() => {
+              // postData("https://www.swiggy.com/dapi/restaurants/list/update", { answer: 42 }).then((data) => {
+              //     console.log(data); // JSON data parsed by `data.json()` call
+              //   });
 
-            const filteredList = listOfRestaurant.filter(
-              (RESTAURANT) => RESTAURANT.info.avgRating > 4.3
-            );
-            setFilteredRestaurant(filteredList);
-          }}
-        >
-          Top Rated Restaurant
-        </button>
+              const filteredList = listOfRestaurant.filter(
+                (RESTAURANT) => RESTAURANT.info.avgRating > 4.3
+              );
+              setFilteredRestaurant(filteredList);
+            }}
+          >
+            Top Rated Restaurant
+          </button>
         </div>
-        
       </div>
       <div className="flex flex-wrap p-5 gap-5">
         {filteredRestaurant.map((RESTAURANT) => (
