@@ -25,14 +25,14 @@ const RestaurantMenu = () => {
     resInfo?.cards[0]?.card?.card?.info;
 
   return (
-    <div className="menu">
-      <h1>{name}</h1>
+    <div className="menu p-5">
+      <h1 className="font-bold text-2xl">{name}</h1>
       <h3>
         <p>{cuisines.join(", ")}</p>
       </h3>
       <h3>{costForTwoMessage}</h3>
       <h2>
-        <p>Menu</p>
+        <p className="pb-5">Menu</p>
       </h2>
       <ul>
         {/* whenever using map try to use key */}

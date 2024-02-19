@@ -14,7 +14,7 @@ class About extends Component {
   render() {
     console.log("Parent rendered");
     return (
-      <div>
+      <div className="p-10">
         <h1> This is about page</h1>
         <h2> Welcome to my project</h2>
         {/* If you want to pass data through functional component */}

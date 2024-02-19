@@ -12,13 +12,13 @@ const RestaurantCard = (props) => {
   return (
     //style takes a JS object but i can directly pass the js object by using {} style={{ backgroundColor: "#f0f0f0"}}
     // outer bracket to notify that theres js piece of code inside.
-    <div className="res-card" style={StyleCard}>
+    <div className="flexm-4 p-4 w-[300px] overflow-hidden bg-gray-100 hover:bg-gray-400" >
       <img
-        className="res-logo"
+        className="rounded-xl"
         alt="res-logo"
         src={CDN_URL + resData.info.cloudinaryImageId}
       />
-      <h3>{name}</h3>
+      <h3 className="font-bold py-2">{name}</h3>
       <h4>{cuisines.join(",")} </h4>
 
       <h4> {costForTwo}</h4>

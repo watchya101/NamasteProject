@@ -132,17 +132,18 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="Body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex justify-between ">
+        <div className="search m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid-black rounded-lg"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
+          className=" px-4 py-4 bg-green-100 m-2 rounded-lg"
             onClick={() => {
               // Filter the restaurent cards and update the UI
               const filteredRestaurantList = listOfRestaurant.filter((res) =>
@@ -156,8 +157,9 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
+        <div className="search m-4 p-4 flex item-center"> 
+            <button
+          className="px-4 py-2 bg-gray-100 rounded-lg"  
           onClick={() => {
             // postData("https://www.swiggy.com/dapi/restaurants/list/update", { answer: 42 }).then((data) => {
             //     console.log(data); // JSON data parsed by `data.json()` call
@@ -171,8 +173,10 @@ const Body = () => {
         >
           Top Rated Restaurant
         </button>
+        </div>
+        
       </div>
-      <div className="RestaurantContainer">
+      <div className="flex flex-wrap p-5 gap-5">
         {filteredRestaurant.map((RESTAURANT) => (
           <Link
             key={RESTAURANT.info.id}

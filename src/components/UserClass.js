@@ -20,9 +20,9 @@ class UserClass extends React.Component {
     const {count} = this.state;
     console.log("Child rendered");
     return (
-      <div className="user-card">
+      <div className="user-card border-4 border-black p-5">
         <h1>Count:{count}</h1>
-        <button onClick={() => {
+        <button  className="border border-solid-black rounded-lg px-2 m-1 bg-gray-200"onClick={() => {
           this.setState({
             count: this.state.count + 1,
           })
