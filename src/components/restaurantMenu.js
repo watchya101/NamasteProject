@@ -14,19 +14,20 @@ const RestaurantMenu = () => {
   if (!resInfo) return <Shimmer />;
   //const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
   const path =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    console.log(resInfo);
   const path2 =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
       ?.itemCards;
-  console.log(path2);
+  //console.log(path2);
   // console.log(itemCards);
 
-  const { name, cuisines, costForTwoMessage } =
-    resInfo?.cards[0]?.card?.card?.info;
+  const { title, cuisines, costForTwoMessage } =
+    resInfo?.cards[2]?.card?.card?.info;
 
   return (
     <div className="menu p-5">
-      <h1 className="font-bold text-2xl">{name}</h1>
+      <h1 className="font-bold text-2xl">{title}</h1>
       <h3>
         <p>{cuisines.join(", ")}</p>
       </h3>
